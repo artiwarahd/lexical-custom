@@ -119,13 +119,13 @@ export function InsertImageUploadedDialogBody({
         accept="image/*"
         data-test-id="image-modal-file-upload"
       />
-      <TextInput
+      {/* <TextInput
         label="Alt Text"
         placeholder="Descriptive alternative text"
         onChange={setAltText}
         value={altText}
         data-test-id="image-modal-alt-text-input"
-      />
+      /> */}
       <DialogActions>
         <Button
           data-test-id="image-modal-file-upload-btn"
@@ -186,11 +186,11 @@ export function InsertImageDialog({
             }>
             Sample
           </Button>
-          <Button
+          {/* <Button
             data-test-id="image-modal-option-url"
             onClick={() => setMode('url')}>
             URL
-          </Button>
+          </Button> */}
           <Button
             data-test-id="image-modal-option-file"
             onClick={() => setMode('file')}>
