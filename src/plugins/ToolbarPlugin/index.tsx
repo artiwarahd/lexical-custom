@@ -999,7 +999,6 @@ export default function ToolbarPlugin({
             type="button"
             aria-label={`Add Image.`}>
             <i className="icon image" />
-            <span className="text">Image</span>
           </button>
           <button
             disabled={!isEditable}
