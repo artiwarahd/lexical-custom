@@ -1,5 +1,7 @@
 import {useLexicalComposerContext} from '@lexical/react/LexicalComposerContext';
 import {
+  $createParagraphNode,
+  $createTextNode,
   $getSelection,
   $isRangeSelection,
   $isParagraphNode,
@@ -13,10 +15,18 @@ import {
 import {useEffect} from 'react';
 
 function indentNode(node: LexicalNode) {
-  if ($isTextNode(node)) {
+  if ($isParagraphNode(node)) {
+    const firstChild = node.getFirstChild();
+    if (firstChild && $isTextNode(firstChild)) {
+      firstChild.setTextContent('\t' + firstChild.getTextContent());
+    } else {
+      const newTextNode = $createTextNode('\t');
+      const newParagraphNode = $createParagraphNode();
+      newParagraphNode.append(newTextNode);
+      node.replace(newParagraphNode);
+    }
+  } else if ($isTextNode(node)) {
     node.setTextContent('\t' + node.getTextContent());
-  } else if ($isParagraphNode(node)) {
-    node.setIndent(node.getIndent() + 1);
   }
 }
 
