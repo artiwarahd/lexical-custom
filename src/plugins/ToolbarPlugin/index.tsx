@@ -1004,23 +1004,6 @@ export default function ToolbarPlugin({
           <button
             disabled={!isEditable}
             onClick={() => {
-              showModal('Insert Inline Image', (onClose) => (
-                <InsertInlineImageDialog
-                  activeEditor={activeEditor}
-                  onClose={onClose}
-                />
-              ));
-            }}
-            className="toolbar-item"
-            title={'Inline Image'}
-            type="button"
-            aria-label={`Add Inline Image.`}>
-            <i className="icon image" />
-            <span className="text">Inline Image</span>
-          </button>
-          <button
-            disabled={!isEditable}
-            onClick={() => {
               showModal('Insert Table', (onClose) => (
                 <InsertTableDialog
                   activeEditor={activeEditor}
